@@ -28,11 +28,25 @@ function Men() {
   );
 
   return (
+    <>
+    {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
     <div className="container-men-list flex flex-col m-10">
-      {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
-      <Searcher search={search} setSearch={setSearch} users={users} />
-      <Table users={filteredUsers} />
+
+    <div className="container-title  flex justify-center items-center">
+      <h1>ESTUDIANTES HOMBRES</h1>
     </div>
+
+    <div className="container-searcher flex justify-center items-center  mt-3">
+      <Searcher search={search} setSearch={setSearch} users={users} />
+    </div>
+
+    
+    <div className="container-table mt-3 justify-center items-center w-[100%]">
+      <Table users={filteredUsers} />
+    </div> 
+    </div>
+    </>
+
   );
 }
 

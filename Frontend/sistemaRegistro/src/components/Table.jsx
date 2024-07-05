@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function Table({ users }) {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 15;
+  const usersPerPage = 5;
 
   // Calcular los índices de los usuarios para la página actual
   const indexOfLastUser = currentPage * usersPerPage;
@@ -21,10 +21,10 @@ function Table({ users }) {
 
   return (
     <>
-      <div className="container-table bg-violet-600 overflow-auto  flex justify-center items-center flex-col">
-        <table className="table table-striped table-hover mt-5 shadow-lg max-lg:ml-auto bg-orange-600 ">
-          <thead className='bg-red-500 '>
-            <tr className="bg-violet-400 hola ">
+      <div className="container-table  overflow-auto  flex justify-center items-center flex-col mx-[8%] max-lg:mx-[0%] ">
+        <table className="table table-striped table-hover mt-[20px] shadow-lg max-lg:ml-auto  max-lg:mt-[0px]">
+          <thead className='text-center'>
+            <tr>
               <th >ID</th>
               <th >Nombre</th>
               <th >Apellido</th>
@@ -34,9 +34,9 @@ function Table({ users }) {
               <th >Carrera</th>
             </tr>
           </thead>
-          <tbody className=' bg-fuchsia-400'>
+          <tbody>
             {currentUsers.map(user => (
-              <tr key={user.id} className=''>
+              <tr key={user.id} className='text-center'>
                 <td  >{user.id}</td>
                 <td >{user.nombre}</td>
                 <td >{user.apellido}</td>

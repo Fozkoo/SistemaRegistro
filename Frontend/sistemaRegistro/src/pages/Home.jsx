@@ -31,10 +31,10 @@ function Home() {
 
   return (
     <>
-    <div className="container-men-page flex items-center bg-green-400 flex-col m-10">
+    <div className="container-men-page flex items-center  flex-col m-10">
       {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
-        <div className="container-title flex items-center justify-center  mt-2 w-full ">
-           <h1 className='text-4xl max-lg:text-[100%]'>SISTEMA DE REGISTRO UNIVERSITARIO</h1>
+        <div className="container-title flex items-center justify-center max-lg:text-center  mt-2 w-full ">
+           <h1 className='text-4xl max-lg:text-2xl'>SISTEMA DE REGISTRO UNIVERSITARIO</h1>
         </div>
       
         <div className="container-bottoms   w-full flex justify-center mt-[40px] max-lg:flex-col max-lg:justify-center max-lg:items-center max-lg:mt-[7px]">
@@ -55,7 +55,7 @@ function Home() {
           class="border  border-red-500 bg-red-500 text-white rounded-md px-4 py-[7px] m-1 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline max-lg:hidden">Eliminar</button>
         </div>
     </div>
-    <div className="container-table bg-orange-300 justify-center items-center w-[100%] overflow-hidden">
+    <div className="container-table  justify-center items-center w-[100%]">
       <Table users={filteredUsers} />
     </div>    
     </>
