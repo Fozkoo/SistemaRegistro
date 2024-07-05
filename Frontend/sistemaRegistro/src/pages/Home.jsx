@@ -65,10 +65,3 @@ function Home() {
 
 export default Home;
 
-
-/* 
-      {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
-      <Searcher search={search} setSearch={setSearch} users={users} />
-      <Table users={filteredUsers} />
-
-      */

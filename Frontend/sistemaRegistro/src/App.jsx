@@ -7,6 +7,10 @@ import Men from './pages/Men';
 import Women from './pages/Women'; 
 import Footer from './components/Footer';
 import Teacher from './pages/Teacher';
+import View from './pages/View';
+
+
+
 
 function App() {
   return (
@@ -17,6 +21,7 @@ function App() {
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
         <Route path="/teacher" element={<Teacher />} />
+        <Route path="/view" element={<View />} />
       </Routes>
       <Footer/>
     </Router>
