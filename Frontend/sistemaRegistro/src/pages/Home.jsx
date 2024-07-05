@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import servicesAPI from '../service/helper';
+import Searcher from '../components/Searcher';
+import Table from '../components/Table';
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -28,42 +30,39 @@ function Home() {
   );
 
   return (
-    <div className="container-men-list flex flex-col m-10">
-      <div className='container-table flex w-full'>
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={handleSearch}
-          className="form-control"
-        />
-      </div>
-      <table className="table table-striped table-hover mt-5 shadow-lg">
-        <thead>
-          <tr className="hola text-black">
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Documento</th>
-            <th>Sexo</th>
-            <th>Carrera</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredUsers.map(user => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.nombre}</td>
-              <td>{user.apellido}</td>
-              <td>{user.documento}</td>
-              <td>{user.sexoIdSexo}</td>
-              <td>{user.carreraIdCarrera}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container-men-page flex items-center flex-col m-10   h-[1000px]">
+      {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
+        <div className="container-title flex items-center justify-center  mt-2 w-full">
+           <h1 className='text-4xl'>SISTEMA DE REGISTRO UNIVERSITARIO</h1>
+        </div>
+      
+        <div className="container-bottoms  w-full flex justify-center mt-5">
+         <Searcher search={search} setSearch={setSearch} users={users}/>
+         <button
+          type="button"
+          class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-[7px] m-1 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">Cargar</button>
+          <button
+          type="button"
+          class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-[7px] m-1 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">Eliminar</button>
+        </div>
+        
+
+        
+
+        
+       
+
+
     </div>
   );
 }
 
 export default Home;
+
+
+/* 
+      {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
+      <Searcher search={search} setSearch={setSearch} users={users} />
+      <Table users={filteredUsers} />
+
+      */

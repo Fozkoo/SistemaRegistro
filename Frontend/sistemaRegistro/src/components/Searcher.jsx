@@ -7,13 +7,13 @@ function Searcher({ search, setSearch, users }) {
   };
 
   return (
-    <div className='container-table flex w-full'>
+    <div className='container-table flex  w-[50%]'>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Buscar"
         value={search}
         onChange={handleSearch}
-        className="form-control"
+        className="form-control flex justify-center items-center"
       />
     </div>
   )

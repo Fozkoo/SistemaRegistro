@@ -39,12 +39,6 @@ const searchWomen = async () => {
 };
 
 
-
-
-
-
-
-
 const servicesAPI = {
     showData,
     searchMen,
