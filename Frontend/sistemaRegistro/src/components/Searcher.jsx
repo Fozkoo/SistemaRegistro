@@ -7,7 +7,7 @@ function Searcher({ search, setSearch, users }) {
   };
 
   return (
-    <div className='container-table flex  w-[50%]'>
+    <div className='container-table flex  w-[50%] max-lg:w-full'>
       <input
         type="text"
         placeholder="Buscar"

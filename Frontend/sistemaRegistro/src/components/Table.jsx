@@ -21,29 +21,29 @@ function Table({ users }) {
 
   return (
     <>
-      <div className="container-table  w-full flex justify-center items-center flex-col px-[10%]">
-        <table className="table table-striped table-hover mt-5 shadow-lg">
-          <thead>
-            <tr className="hola text-black">
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Documento</th>
-              <th>Sexo</th>
-              <th>Rol</th>
-              <th>Carrera</th>
+      <div className="container-table bg-violet-600 overflow-auto  flex justify-center items-center flex-col">
+        <table className="table table-striped table-hover mt-5 shadow-lg max-lg:ml-auto bg-orange-600 ">
+          <thead className='bg-red-500 '>
+            <tr className="bg-violet-400 hola ">
+              <th >ID</th>
+              <th >Nombre</th>
+              <th >Apellido</th>
+              <th >Documento</th>
+              <th >Sexo</th>
+              <th >Rol</th>
+              <th >Carrera</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className=' bg-fuchsia-400'>
             {currentUsers.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.nombre}</td>
-                <td>{user.apellido}</td>
-                <td>{user.documento}</td>
-                <td>{user.sexoIdSexo}</td>
-                <td>Null</td>
-                <td>{user.carreraIdCarrera}</td>
+              <tr key={user.id} className=''>
+                <td  >{user.id}</td>
+                <td >{user.nombre}</td>
+                <td >{user.apellido}</td>
+                <td >{user.documento}</td>
+                <td >{user.sexoIdSexo}</td>
+                <td >Null</td>
+                <td >{user.carreraIdCarrera}</td>
               </tr>
             ))}
           </tbody>
