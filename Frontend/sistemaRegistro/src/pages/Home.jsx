@@ -36,7 +36,7 @@ function Home() {
            <h1 className='text-4xl'>SISTEMA DE REGISTRO UNIVERSITARIO</h1>
         </div>
       
-        <div className="container-bottoms  w-full flex justify-center mt-5">
+        <div className="container-bottoms  w-full hidden justify-center mt-5 ">
          <Searcher search={search} setSearch={setSearch} users={users}/>
          <button
           type="button"
@@ -44,6 +44,10 @@ function Home() {
           <button
           type="button"
           class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-[7px] m-1 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">Eliminar</button>
+        </div>
+
+        <div className="container-table hidden justify-center w-full ">
+          <Table users={filteredUsers} />
         </div>
         
 

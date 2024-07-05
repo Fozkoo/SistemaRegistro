@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './pages/Home'; 
 import Men from './pages/Men'; 
 import Women from './pages/Women'; 
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }
