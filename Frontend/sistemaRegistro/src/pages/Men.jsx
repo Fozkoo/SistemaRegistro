@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import servicesAPI from '../service/helper';
 
-
-
 function Men() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
 
   const showData = async () => {
-    try { 
+    try {
       const data = await servicesAPI.searchMen();
       setUsers(data);
       console.log(data);
     } catch (error) {
-      setError(error); 
+      setError(error);
+      setUsers([]); 
     }
   }
 
@@ -23,6 +22,7 @@ function Men() {
 
   return (
     <div className="container-men-list flex flex-col m-10">
+      {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
       <table className="table table-striped table-hover mt-5 shadow-lg">
         <thead>
           <tr className="hola text-black">

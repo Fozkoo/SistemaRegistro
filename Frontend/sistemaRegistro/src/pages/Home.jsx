@@ -4,26 +4,40 @@ import servicesAPI from '../service/helper';
 function Home() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
-
-  const showData = async () => {
-    try { 
-      const data = await servicesAPI.showData();
-      setUsers(data);
-      console.log(data);
-    } catch (error) {
-      setError(error); 
-    }
-  }
-
-
-
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
+    const showData = async () => {
+      try {
+        const data = await servicesAPI.showData();
+        setUsers(data);
+      } catch (error) {
+        setError(error);
+      }
+    };
+
     showData();
   }, []);
 
+  const handleSearch = (e) => {
+    setSearch(e.target.value.toLowerCase());
+  };
+
+  const filteredUsers = users.filter(user =>
+    user.nombre.toLowerCase().includes(search)
+  );
+
   return (
     <div className="container-men-list flex flex-col m-10">
+      <div className='container-table flex w-full'>
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={handleSearch}
+          className="form-control"
+        />
+      </div>
       <table className="table table-striped table-hover mt-5 shadow-lg">
         <thead>
           <tr className="hola text-black">
@@ -36,7 +50,7 @@ function Home() {
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
+          {filteredUsers.map(user => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.nombre}</td>
@@ -52,4 +66,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;

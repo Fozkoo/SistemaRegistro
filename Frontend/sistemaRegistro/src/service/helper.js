@@ -18,36 +18,28 @@ const showData = async () => {
     }
 }
 
-
 const searchMen = async () => {
     try {
-        const response = await api.get(URL);
-        const allStudents = response.data;
-        
-        
-        const maleStudents = allStudents.filter(estudiante => estudiante.sexoIdSexo == "masculino");
-        
-        return maleStudents;
-    } catch (error) {
-        console.error("Error al buscar estudiantes masculinos", error);
-        throw error;
+        const response = await api.get("sexo/masculino");
+        return response.data;
+    } catch (err) {
+        console.error("No se pudo encontrar la dirección", err);
+        throw err;
     }
-}
+};
 
 const searchWomen = async () => {
     try {
-        const response = await api.get(URL);
-        const allStudents = response.data;
-        
-        
-        const womanStudents = allStudents.filter(estudiante => estudiante.sexoIdSexo == "femenino");
-        
-        return womanStudents;
-    } catch (error) {
-        console.error("Error al buscar estudiantes femeninos", error);
-        throw error;
+        const response = await api.get("sexo/femenino");
+        return response.data;
+    } catch (err) {
+        console.error("No se pudo encontrar la dirección", err);
+        throw err;
     }
-}
+};
+
+
+
 
 
 
