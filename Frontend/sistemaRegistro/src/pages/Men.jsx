@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import servicesAPI from '../service/helper';
+import Searcher from '../components/Searcher';
+import Table from '../components/Table';
 
 function Men() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
 
   const showData = async () => {
     try {
@@ -12,41 +15,23 @@ function Men() {
       console.log(data);
     } catch (error) {
       setError(error);
-      setUsers([]); 
+      setUsers([]);
     }
-  }
+  };
 
   useEffect(() => {
     showData();
   }, []);
 
+  const filteredUsers = users.filter(user =>
+    user.nombre.toLowerCase().includes(search)
+  );
+
   return (
     <div className="container-men-list flex flex-col m-10">
       {error && <p className="error-message">Ocurrió un error: {error.message}</p>}
-      <table className="table table-striped table-hover mt-5 shadow-lg">
-        <thead>
-          <tr className="hola text-black">
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Documento</th>
-            <th>Sexo</th>
-            <th>Carrera</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map(user => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.nombre}</td>
-              <td>{user.apellido}</td>
-              <td>{user.documento}</td>
-              <td>{user.sexoIdSexo}</td>
-              <td>{user.carreraIdCarrera}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Searcher search={search} setSearch={setSearch} users={users} />
+      <Table users={filteredUsers} />
     </div>
   );
 }
