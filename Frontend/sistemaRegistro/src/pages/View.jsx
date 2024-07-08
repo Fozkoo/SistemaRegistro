@@ -10,7 +10,7 @@ function View() {
 
   return (
     <>
-        <div className="container-view bg-red-200 flex justify-center items-center h-[500px]">
+        <div className="container-view bg-red-200 flex justify-center items-center">
             <FormAdd />
         </div>
     

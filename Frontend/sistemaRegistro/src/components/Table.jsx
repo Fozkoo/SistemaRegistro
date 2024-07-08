@@ -3,17 +3,16 @@ import React, { useState } from 'react';
 function Table({ users }) {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 5;
+  const usersPerPage = 10;
 
-  // Calcular los índices de los usuarios para la página actual
+
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-  // Cambiar de página
+
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  // Generar los números de página
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(users.length / usersPerPage); i++) {
     pageNumbers.push(i);
@@ -30,7 +29,6 @@ function Table({ users }) {
               <th >Apellido</th>
               <th >Documento</th>
               <th >Sexo</th>
-              <th >Rol</th>
               <th >Carrera</th>
             </tr>
           </thead>
@@ -38,12 +36,11 @@ function Table({ users }) {
             {currentUsers.map(user => (
               <tr key={user.id} className='text-center'>
                 <td  >{user.id}</td>
-                <td >{user.nombre}</td>
-                <td >{user.apellido}</td>
+                <td >{user.nombre.toUpperCase()}</td>
+                <td >{user.apellido.toUpperCase()}</td>
                 <td >{user.documento}</td>
-                <td >{user.sexoIdSexo}</td>
-                <td >Null</td>
-                <td >{user.carreraIdCarrera}</td>
+                <td >{user.sexoIdSexo.toUpperCase()}</td>
+                <td >{user.carreraIdCarrera.toUpperCase()}</td>
               </tr>
             ))}
           </tbody>

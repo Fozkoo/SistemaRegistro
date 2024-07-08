@@ -20,7 +20,7 @@ function Header() {
               <Link to="/" className="text-gray-800 text-lg font-semibold hover:text-purple-600 mr-4">Alumnos</Link>
               <Link to="/men" className="text-gray-800 text-lg font-semibold hover:text-purple-600 mr-4">Hombres</Link>
               <Link to="/women" className="text-gray-800 text-lg font-semibold hover:text-purple-600 mr-4">Mujeres</Link>
-              <Link to="/teacher" className="text-gray-800 text-lg font-semibold hover:text-purple-600 mr-4">Docentes</Link>
+            
               
             </div>
     
@@ -37,7 +37,7 @@ function Header() {
             <Link to="/" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Alumnos</Link>
               <Link to="/men" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Hombres</Link>
               <Link to="/women" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Mujeres</Link>
-              <Link to="/teacher" className="text-gray-800 text-sm font-semibold hover:text-purple-600 mr-4">Docentes</Link>
+            
             </div>
           </div>
         </div>

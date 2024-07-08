@@ -60,10 +60,10 @@ function FormAdd() {
   };
 
   return (
-    <>
-      <div className="container-form flex items-center justify-center w-[50%] bg-white flex-col">
-        <Form onSubmit={handleSubmit} className='formulario flex flex-col w-[50%]'>
-
+    <> 
+      
+      <div className="container-form flex items-center justify-center w-[60%] shadow-2xl  flex-col h-[750px] rounded-[10px] max-lg:w-[100%]">
+        <Form onSubmit={handleSubmit} className='formulario flex justify-center flex-col w-[50%] h-[500px] max-lg:w-[80%]'>
           <Form.Group className="mb-3">
             <Form.Label>Nombre *</Form.Label>
             <Form.Control
@@ -111,7 +111,7 @@ function FormAdd() {
               <option value="">Seleccionar Sexo</option>
               {sexos.map(sexo => (
                 <option key={sexo.id} value={sexo.id}>
-                  {sexo.nombre}
+                  {sexo.nombre.toUpperCase()}
                 </option>
               ))}
             </Form.Select>
@@ -128,7 +128,7 @@ function FormAdd() {
               <option value="">Seleccionar Carrera</option>
               {carreras.map(carrera => (
                 <option key={carrera.id} value={carrera.id}>
-                  {carrera.nombre}
+                  {carrera.nombre.toUpperCase()}
                 </option>
               ))}
             </Form.Select>
