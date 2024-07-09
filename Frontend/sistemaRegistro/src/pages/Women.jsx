@@ -13,7 +13,6 @@ function Women() {
     try { 
       const data = await servicesAPI.searchWomen();
       setUsers(data);
-      console.log(data);
     } catch (error) {
       setError(error); 
     }

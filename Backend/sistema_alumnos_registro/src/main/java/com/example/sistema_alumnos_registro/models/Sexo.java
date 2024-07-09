@@ -19,4 +19,5 @@ public class Sexo {
     @Column(name = "nombre", nullable = false, length = 45)
     private String nombre;
 
+
 }

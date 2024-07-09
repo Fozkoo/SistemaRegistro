@@ -12,7 +12,6 @@ function Teacher() {
     try {
       const data = await servicesAPI.searchMen();
       setUsers(data);
-      console.log(data);
     } catch (error) {
       setError(error);
       setUsers([]);

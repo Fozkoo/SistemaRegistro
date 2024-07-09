@@ -18,7 +18,6 @@ function FormAdd() {
     try {
       const data = await servicesAPI.searchAllSexos();
       setSexos(data);
-      console.log('Sexos:', data);
     } catch (error) {
       console.error('Error al obtener los sexos:', error);
     }
@@ -28,7 +27,6 @@ function FormAdd() {
     try {
       const data = await servicesAPI.searchAllCarreras();
       setCarreras(data);
-      console.log('Carreras:', data);
     } catch (error) {
       console.error('Error al obtener las carreras:', error);
     }

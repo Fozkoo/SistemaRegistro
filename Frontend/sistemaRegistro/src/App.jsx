@@ -7,7 +7,6 @@ import Men from './pages/Men';
 import Women from './pages/Women'; 
 import Footer from './components/Footer';
 import Teacher from './pages/Teacher';
-import View from './pages/View';
 
 
 
@@ -21,7 +20,7 @@ function App() {
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
         <Route path="/teacher" element={<Teacher />} />
-        <Route path="/view" element={<View />} />
+        <Route path="/*" element={<Home />} /> {/* Aca es para que no se pueda ir a una ruta que no existe, que te redirija al home route */}
       </Routes>
       <Footer/>
     </Router>

@@ -3,6 +3,7 @@ import servicesAPI from '../service/helper';
 import Searcher from '../components/Searcher';
 import Table from '../components/Table';
 import FormAdd from '../components/FormAdd';
+import FormDelete from '../components/FormDelete';
 import Button from 'react-bootstrap/Button';
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const [showForm, setShowForm] = useState(false);
+  const [showFormDelete, setShowFormDelete] = useState(false);
 
   useEffect(() => {
     const showData = async () => {
@@ -24,9 +26,7 @@ function Home() {
     showData();
   }, []);
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value.toLowerCase());
-  };
+
 
   const filteredUsers = users.filter(user =>
     user.nombre.toLowerCase().includes(search)
@@ -36,12 +36,29 @@ function Home() {
     setShowForm(!showForm); 
   };
 
+  const toggleFormDeleteVisibility = () => {
+    setShowFormDelete(!showFormDelete);
+  };
+
   const closeForm = () => {
     setShowForm(false); 
   };
 
+  const closeFormDelete = () => {
+    setShowFormDelete(false); 
+  }
+
   return (
     <>
+      <div className={`container-formulario bg-slate-50 absolute w-full h-full ${showFormDelete ? 'flex' : 'hidden'} justify-center  pt-5`}>
+        <FormDelete />
+        <div className="contain-button-close flex left-[70%] mt-7 absolute">
+          <Button variant="danger" type="button" onClick={closeFormDelete}>
+            Cerrar
+          </Button>
+        </div>
+      </div>
+      
       <div className={`container-formulario bg-slate-50 absolute w-full h-full ${showForm ? 'flex' : 'hidden'} justify-center  pt-5`}>
         <FormAdd />
         <div className="contain-button-close flex left-[70%] mt-7 absolute">
@@ -69,6 +86,7 @@ function Home() {
             <button
               type="button"
               className="border flex border-red-500 bg-red-500 text-white rounded-md px-4 py-[6px] m-1 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+              onClick={toggleFormDeleteVisibility}
             >
               Eliminar
             </button>
@@ -84,6 +102,7 @@ function Home() {
           <button
             type="button"
             className="border border-red-500 bg-red-500 text-white rounded-md px-4 py-[7px] m-1 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline max-lg:hidden"
+            onClick={toggleFormDeleteVisibility}
           >
             Eliminar
           </button>

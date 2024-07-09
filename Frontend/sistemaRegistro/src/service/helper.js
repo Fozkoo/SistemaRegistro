@@ -66,13 +66,25 @@ const addStudent = async (studentData) => {
     }
 };
 
+const deleteStudent = async (id) => {
+    try {
+        const response = await api.delete(`/delete/${id}`);
+        return response.data;
+    } catch (err) {
+        console.error("No se pudo eliminar el estudiante", err);
+        throw err;
+    }
+};
+
+
 const servicesAPI = {
     showData,
     searchMen,
     searchWomen,
     searchAllSexos,
     searchAllCarreras,
-    addStudent // Agrega la nueva función aquí
+    addStudent,
+    deleteStudent
 };
 
 export default servicesAPI;
